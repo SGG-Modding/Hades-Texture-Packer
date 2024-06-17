@@ -6,7 +6,8 @@ To install the texture packer, install [deppth](https://github.com/quaerus/deppt
 
 # How to Use
 Open command prompt and cd to a parent folder, in that folder, have a folder with .pngs (must be a png otherwise the image will not be used) and nested folders with more images.
-For this example, the folder with images in it will be called NewIconPkg, with the following setup, and the package we want is ModAuthor-NewIconPackage. The package name must include the mod GUID (ModAuthor-ModName) in order to work with Hell2Modding.
+For this example, the folder with images in it will be called NewIconPkg, with the following setup, and the package we want is ModAuthor-NewIconPackage.\
+The package name must include the mod GUID (ModAuthor-ModName) in order to work with Hell2Modding.
 ```
 ├── NewIconPkg
 │   ├── GUI
