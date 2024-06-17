@@ -6,14 +6,24 @@ from deppth.entries import AtlasEntry
 import json
 import os
 import shutil
+import re
 
 # To use this script, you'll need to pip install scipy and PyTexturePacker in addition to deppth and pillow
 
-SOURCE_DIRECTORY = 'Example_'   # The directory to recursively search for images in
-BASENAME = 'Example'           # Filenames created will start with this plus a number
-INCLUDE_HULLS = False                       # Change to True if you want hull points computed and added
+SOURCE_DIRECTORY = 'Example_'       # The directory to recursively search for images in
+BASENAME = 'Example'                # Filenames created will start with this plus a number
+DEPPTH_PACK = True                  # Change to False if you don't want to automatically pack
+INCLUDE_HULLS = False               # Change to True if you want hull points computed and added
 
-def build_atlases(source_dir, basename, include_hulls=False, logger=lambda s: None):
+def build_atlases(source_dir, basename, deppth_pack=True, include_hulls=False, logger=lambda s: None):
+  # Regex check to make sure user inserts a mod guid type basename
+  regexpattern = r"^[A-Za-z0-9]+[-_][A-Za-z0-9]+$"
+  if re.match(regexpattern, basename):
+    pass
+  else:
+    print("Please provide a basename with your mod guid, example ModAuthor-Modname or ModAuthor_ModName")
+    return
+
   if os.path.isdir(basename) == True:
     shutil.rmtree(basename)
     
@@ -42,8 +52,9 @@ def build_atlases(source_dir, basename, include_hulls=False, logger=lambda s: No
   # Now, loop through the atlases made and transform them to be the right format
   index = 0
   atlases = []
+  manifest_paths = [] # Manifest Path Start
   while os.path.exists(f'{basename}{index}.json'):
-    atlases.append(transform_atlas(basename, f'{basename}{index}.json', namemap, hulls, source_dir))
+    atlases.append(transform_atlas(basename, f'{basename}{index}.json', namemap, hulls, source_dir, manifest_paths))
     os.remove(f'{basename}{index}.json')
     index += 1
   
@@ -52,6 +63,16 @@ def build_atlases(source_dir, basename, include_hulls=False, logger=lambda s: No
   while os.path.exists(f'{basename}{index}.png'):
     os.rename(f'{basename}{index}.png', basename + "\\textures\\atlases\\" + f'{basename}{index}.png')
     index += 1
+
+    # Create the packages
+    if deppth_pack:
+      os.system(f'deppth pk -s {basename} -t {basename}.pkg')
+
+    # print the manifest paths, so its easy to see the game path
+    print("\nManifest Paths - Use in Codebase:")
+    for path in manifest_paths:
+        print(path, "\n")
+
 
 def find_files(source_dir):
   file_list = []
@@ -84,7 +105,7 @@ def get_hull_points(path):
   else:
     return []
 
-def transform_atlas(basename, filename, namemap, hulls={}, source_dir=''):
+def transform_atlas(basename, filename, namemap, hulls={}, source_dir='', manifest_paths=[]):
   with open(filename) as f:
     ptp_atlas = json.load(f)
     frames = ptp_atlas['frames']
@@ -98,7 +119,8 @@ def transform_atlas(basename, filename, namemap, hulls={}, source_dir=''):
     for texture_name in frames:
       frame = frames[texture_name]
       subatlas = {}
-      subatlas['name'] = os.path.splitext(os.path.relpath(namemap[texture_name], source_dir))[0]
+      subatlas['name'] = os.path.join(basename, os.path.splitext(os.path.relpath(namemap[texture_name], source_dir))[0])
+      manifest_paths.append(subatlas['name'])
       subatlas['topLeft'] = {'x': frame['spriteSourceSize']['x'], 'y': frame['spriteSourceSize']['y']}
       subatlas['originalSize'] = {'x': frame['sourceSize']['w'], 'y': frame['sourceSize']['h']}
       subatlas['rect'] = {
