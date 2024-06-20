@@ -13,14 +13,22 @@ The package name must include the mod GUID (ModAuthor-ModName) in order to work 
 │   ├── GUI
 │   │   ├── image1.png
 │   │   ├── image2.ppng
-│   │   ├── image2.png
+│   │   ├── image3.png
+│   │   │ Icons
+│   │   │   ├── Iconimage.png
 ```
 
 Now call
 ```
 texture_packing_wheel pk -s NewIconPkg -b ModAuthor-NewIconPackage
 ```
-this will generate a folder called ModAuthor-NewIconPackage in the parent directory that will be correctly formatted for deppth packaging, as well as 2 package files to use.
+this will generate a folder called ModAuthor-NewIconPackage in the parent directory that will be correctly formatted for deppth packaging, as well as 2 package files to use.\
+This will output the following path to the files from the example above
+```
+ModAuthor-NewIconPackage/GUI/image1.png through 3
+and
+ModAuthor-NewIconPackage/GUI/Icons/Iconimage.png
+```
 
 All image file paths will follow the file path inside the folder they were originally in, plus the package name appended to the start of it - in order to work with Hell2Modding. For example, if the package was in the folder by itself its file path in-game would just be the ``ModAuthor-NewIconPackage\\{Name}``, but if its path was `NewIconPkg/GUI/Icons` then its file path in-game would be `ModAuthor-NewIconPackage\\GUI\\Icons\\{Name}`
 
