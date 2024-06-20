@@ -12,7 +12,7 @@ The package name must include the mod GUID (ModAuthor-ModName) in order to work 
 ├── NewIconPkg
 │   ├── GUI
 │   │   ├── image1.png
-│   │   ├── image2.ppng
+│   │   ├── image2.png
 │   │   ├── image3.png
 │   │   │ Icons
 │   │   │   ├── Iconimage.png
@@ -25,7 +25,9 @@ texture_packing_wheel pk -s NewIconPkg -b ModAuthor-NewIconPackage
 this will generate a folder called ModAuthor-NewIconPackage in the parent directory that will be correctly formatted for deppth packaging, as well as 2 package files to use.\
 This will output the following path to the files from the example above
 ```
-ModAuthor-NewIconPackage/GUI/image1.png through 3
+ModAuthor-NewIconPackage/GUI/image1.png
+ModAuthor-NewIconPackage/GUI/image2.png
+ModAuthor-NewIconPackage/GUI/image3.png
 and
 ModAuthor-NewIconPackage/GUI/Icons/Iconimage.png
 ```
