@@ -18,7 +18,7 @@ The package name must include the mod GUID (ModAuthor-ModName) in order to work 
 │   │   │   ├── Iconimage.png
 ```
 
-Now call
+Now call (without using py)
 ```
 texture_packing_wheel pk -s NewIconPkg -b ModAuthor-NewIconPackage
 ```
