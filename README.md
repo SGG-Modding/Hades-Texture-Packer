@@ -2,7 +2,7 @@
  Creates atlases and the required manifests for textures then sorts them into a package structure to be packed by [deppth](https://github.com/quaerus/deppth)
 
 # Installation
-To install the texture packer, install [deppth](https://github.com/quaerus/deppth) and make sure all of its dependencies are downloaded, then pip install the wheel (make sure the extension .whl is in the wheel name when installing it)
+To install the texture packer, install [deppth](https://github.com/quaerus/deppth) and pip install ``PyTexturePacker`` and make sure all of its dependencies are downloaded, then pip install the wheel (make sure the extension .whl is in the wheel name when installing it)
 
 # How to Use
 Open command prompt and cd to a parent folder, in that folder, have a folder with .pngs (must be a png otherwise the image will not be used) and nested folders with more images.
