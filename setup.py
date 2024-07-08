@@ -15,7 +15,7 @@ setup(
     entry_points = {
         "console_scripts": ['texture_packing_wheel = texture_packing_wheel.cli:main']
         },
-    version = "1.0",
+    version = "1.2",
     description = "Format images into an atlas and manifest for packing with deppth",
     #long_description = long_descr,
     author = "Neil Sandberg & erumi321",
