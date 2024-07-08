@@ -21,7 +21,7 @@ def build_atlases(source_dir, basename, deppth_pack=True, include_hulls=False, l
   if re.match(regexpattern, basename):
     pass
   else:
-    print("Please provide a basename with your mod guid, example ModAuthor-Modname or ModAuthor_ModName")
+    print("Please provide a target with your mod guid, example ModAuthor-Modname or ModAuthor_ModName")
     return
 
   if os.path.isdir(basename) == True:

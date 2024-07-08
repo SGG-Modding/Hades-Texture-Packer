@@ -10,15 +10,15 @@ from setuptools import setup
  
  
 setup(
-    name = "texture_packing_wheel",
+    name = "hades_texture_pack",
     packages = ["texture_packing_wheel"],
     entry_points = {
-        "console_scripts": ['texture_packing_wheel = texture_packing_wheel.cli:main']
+        "console_scripts": ['hades_texture_pack = texture_packing_wheel.cli:main']
         },
     version = "1.2",
     description = "Format images into an atlas and manifest for packing with deppth",
     #long_description = long_descr,
-    author = "Neil Sandberg & erumi321",
+    author = "Neil Sandberg & erumi321 & zannc",
     author_email = "erumi321@gmail.com",
     url = "",
     )
