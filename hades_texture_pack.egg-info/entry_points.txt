@@ -1,0 +1,2 @@
+[console_scripts]
+hades_texture_pack = texture_packing_wheel.cli:main

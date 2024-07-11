@@ -6,8 +6,8 @@ To install the texture packer, install [deppth](https://github.com/quaerus/deppt
 
 # How to Use
 Open command prompt and cd to a parent folder, in that folder, have a folder with .pngs (must be a png otherwise the image will not be used) and nested folders with more images.
-For this example, the folder with images in it will be called NewIconPkg, with the following setup, and the package we want is ModAuthor-NewIconPackage.\
-The package name must include the mod GUID (ModAuthor-ModName) in order to work with Hell2Modding.
+For this example, the folder with images in it will be called NewIconPkg, with the following setup below, and the package we want is ThunderstoreTeamName-NewIconPackage.\
+The package name must include the ``Mod-GUID`` (ThunderstoreTeamName-ModName) in order to work with Hell2Modding.
 ```
 ├── NewIconPkg
 │   ├── GUI
@@ -20,22 +20,22 @@ The package name must include the mod GUID (ModAuthor-ModName) in order to work 
 
 Now call (without using py)
 ```
-hades_texture_pack -s NewIconPkg -t ModAuthor-NewIconPackage
+hades_texture_pack -s NewIconPkg -t ThunderstoreTeamName-NewIconPackage
 ```
-this will generate a folder called ModAuthor-NewIconPackage in the parent directory that will be correctly formatted for deppth packaging, as well as 2 package files to use.\
+this will generate a folder called ThunderstoreTeamName-NewIconPackage in the parent directory that will be correctly formatted for deppth packaging, as well as 2 package files to use.\
 This will output the following path to the files from the example above
 ```
-ModAuthor-NewIconPackage/GUI/image1.png
-ModAuthor-NewIconPackage/GUI/image2.png
-ModAuthor-NewIconPackage/GUI/image3.png
+ThunderstoreTeamName-NewIconPackage/GUI/image1.png
+ThunderstoreTeamName-NewIconPackage/GUI/image2.png
+ThunderstoreTeamName-NewIconPackage/GUI/image3.png
 and
-ModAuthor-NewIconPackage/GUI/Icons/Iconimage.png
+ThunderstoreTeamName-NewIconPackage/GUI/Icons/Iconimage.png
 ```
 
-All image file paths will follow the file path inside the folder they were originally in, plus the package name appended to the start of it - in order to work with Hell2Modding. For example, if the package was in the folder by itself its file path in-game would just be the ``ModAuthor-NewIconPackage\\{Name}``, but if its path was `NewIconPkg/GUI/Icons` then its file path in-game would be `ModAuthor-NewIconPackage\\GUI\\Icons\\{Name}`
+All image file paths will follow the file path inside the folder they were originally in, plus the package name appended to the start of it - in order to work with Hell2Modding. For example, if the package was in the folder by itself its file path in-game would just be the ``ThunderstoreTeamName-NewIconPackage\\{Name}``, but if its path was `NewIconPkg/GUI/Icons` then its file path in-game would be `ThunderstoreTeamName-NewIconPackage\\GUI\\Icons\\{Name}`
 
 ## Args
 * `-s` or `--source` is the name of the folder in which to recursively search for images
-* `-t` or `--target` is the name of the resulting folder to be packed by deppth, must be in the form of a mod GUID (ModAuthor-ModName).
+* `-t` or `--target` is the name of the resulting folder to be packed by deppth, must be in the form of a ``Mod-GUID`` (ThunderstoreTeamName-ModName).
 * `-dp` or `--deppthpack` (not used above) set to anything but "True" to disable automatic Deppth Packing.
 * `-iH` or `--includehulls` (not used above) set to anything but "False" to calculate hull points.
