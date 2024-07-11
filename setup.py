@@ -15,7 +15,7 @@ setup(
     entry_points = {
         "console_scripts": ['hades_texture_pack = texture_packing_wheel.cli:main']
         },
-    version = "1.2",
+    version = "1.3",
     description = "Format images into an atlas and manifest for packing with deppth",
     #long_description = long_descr,
     author = "Neil Sandberg & erumi321 & zannc",

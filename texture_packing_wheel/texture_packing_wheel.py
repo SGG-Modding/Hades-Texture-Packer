@@ -17,11 +17,12 @@ INCLUDE_HULLS = False               # Change to True if you want hull points com
 
 def build_atlases(source_dir, basename, deppth_pack=True, include_hulls=False, logger=lambda s: None):
   # Regex check to make sure user inserts a mod guid type basename
-  regexpattern = r"^[A-Za-z0-9]+[-_][A-Za-z0-9]+$"
-  if re.match(regexpattern, basename):
+  regexpattern = r"^[a-z0-9]+(\w+[a-z0-9])?-\w+$"
+  
+  if re.match(regexpattern, basename, flags=re.I|re.A):
     pass
   else:
-    print("Please provide a target with your mod guid, example ModAuthor-Modname or ModAuthor_ModName")
+    print("Please provide a target with your mod guid, example ThunderstoreTeamName-Modname")
     return
 
   if os.path.isdir(basename) == True:
