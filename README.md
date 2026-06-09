@@ -1,3 +1,6 @@
+> [!CAUTION]
+> Hades Texture Packer is deprecated. Please use [deppth2](https://github.com/SGG-Modding/deppth) instead.
+ 
 # Hades Texture Packer
  Creates atlases and the required manifests for textures then sorts them into a package structure to be packed by [deppth](https://github.com/quaerus/deppth)
 
